@@ -1,0 +1,57 @@
+<table class="table table-striped">
+  
+  <tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email Id</td>
+    <td>Salary</td>
+    <td>Sales Volume</td>
+  </tr> 
+  
+  <tr *ngFor="let person of saleslist" [ngClass]="{'lowSales':person.salary<=10000,
+                'highSales':person.salary>10000}">
+    <td>{{person.firstName}}</td>
+    <td>{{person.lastName}}</td>
+    <td>{{person.email}}</td>
+
+    <td>{{person.salary}}</td>
+    <td>{{person.salesVolume}}</td>
+  </tr>
+</table>
+
+&nbsp;
+<h2 class="col-sm-3" ><b>Form</b></h2>
+<form #salesperson ="ngForm" (ngSubmit) = onSubmit()>
+    <div class="row">
+        <div class="col-sm-3">First Name</div>
+        <div class="col-sm-6"><input type="text" name="firstName" [(ngModel)]="formModel.firstName"></div>
+    </div>
+    &nbsp;
+    <div class="row">
+      <div class="col-sm-3">Last Name</div>
+      <div class="col-sm-6"><input type="text" name="lastName" [(ngModel)]="formModel.lastName"></div>
+  </div>
+  &nbsp;
+  <div class="row">
+    <div class="col-sm-3">Emai Id</div>
+    <div class="col-sm-6"><input type="text" name="email"  [(ngModel)]="formModel.email"></div>
+</div>
+&nbsp;
+<div class="row">
+  <div class="col-sm-3">Salary</div>
+  <div class="col-sm-6"><input type="text" name="salary" [(ngModel)]="formModel.salary"></div>
+</div>
+&nbsp;
+<div class="row">
+  <div class="col-sm-3">Sales Volume</div>
+  <div class="col-sm-6"><input type="text" name="salesVolume"  [(ngModel)]="formModel.salesVolume"></div>
+</div>
+&nbsp;
+<div class="row">
+  <div class="col-sm-3">
+    <input type="submit" name="submit" value="submit" class="btn btn-primary"/>
+  </div>
+
+
+</div>
+</form>
